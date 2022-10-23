@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 // mongodb+srv://process.env.MONGO_DB_USER:process.env.MONGO_DB_PASSWORD@cluster.cirkd.mongodb.net/?retryWrites=true&w=majority
 const db = mongoose
   .connect(
-    `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@cluster.cirkd.mongodb.net/?retryWrites=true&w=majority`
+    `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@cluster.cirkd.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`
   )
   .then((res) => {
     console.log("Connection to DB successfull");

@@ -16,6 +16,27 @@ const loginSchema = Joi.object({
 const forgotSchema = Joi.object({
   email: Joi.string().min(6).max(100).required(),
 });
+// title: String,
+// subtitle: String,
+// description: String,
+// image: String,
+// price: Number,
+// duration: Number,
+// classes: Number,
+// type: String,
+// tag: String,
+const bookingSchema = Joi.object({
+  title: Joi.string().min(6).required(),
+  subtitle: Joi.string().min(6).max(100).required(),
+  description: Joi.string().min(6).max(500).required(),
+  email: Joi.string().min(6).max(100).required(),
+  image: Joi.string().min(6).max(200).required(),
+  price: Joi.number().required(),
+  duration: Joi.number().required(),
+  classes: Joi.number().required(),
+  type: Joi.string().min(6).required(),
+  tag: Joi.array().min(1).required(),
+});
 
 // Register Validation
 function registerValidation(data) {
@@ -32,6 +53,10 @@ function loginValidation(data) {
 function forgotValidation(data) {
   //validation
   return forgotSchema.validate(data);
+}
+//Booking Validation
+async function bookingValidation(data) {
+  return bookingSchema.validate(data);
 }
 
 //Hashing Password
@@ -62,11 +87,19 @@ async function createJWT(email) {
 async function verifyJWT(token) {
   return JWT.verify(token, process.env.JWT_SECRET);
 }
+const inum = Object.freeze({
+  IDLE: "idle",
+  ERROR: "error",
+});
 
-module.exports.registerValidation = registerValidation;
-module.exports.loginValidation = loginValidation;
-module.exports.forgotValidation = forgotValidation;
-module.exports.hashingPassword = hashingPassword;
-module.exports.checkHashedPass = checkHashedPass;
-module.exports.createJWT = createJWT;
-module.exports.verifyJWT = verifyJWT;
+module.exports = {
+  registerValidation,
+  loginValidation,
+  forgotValidation,
+  bookingValidation,
+  hashingPassword,
+  checkHashedPass,
+  inum,
+  createJWT,
+  verifyJWT,
+};

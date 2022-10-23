@@ -35,6 +35,27 @@ const bookingSchema = new mongoose.Schema({
     default: Date.now,
   },
 });
+const productSchema = new mongoose.Schema({
+  title: String,
+  subtitle: String,
+  description: String,
+  email: String,
+  image: String,
+  price: Number,
+  duration: Number,
+  classes: Number,
+  type: String,
+  tag: Array,
+  created_on: {
+    type: Date,
+    default: Date.now,
+  },
+  updated_on: {
+    type: Date,
+    default: Date.now,
+  },
+});
 
-module.exports.DBUSER = mongoose.model("userSchema", userSchema);
-module.exports.BOOKING = mongoose.model("bookingSchema", bookingSchema);
+module.exports.DBUSER = mongoose.model("users", userSchema);
+module.exports.BOOKING = mongoose.model("bookings", bookingSchema);
+module.exports.PRODUCT = mongoose.model("products", productSchema);

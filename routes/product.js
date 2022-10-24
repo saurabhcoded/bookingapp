@@ -26,16 +26,19 @@ router.post("/new", verifyRoutesJwt, async (req, res) => {
 });
 router.put("/update/:id", verifyRoutesJwt, async (req, res) => {
   //product Update Logics here
+  const id = req.params.id;
   const user = req.user;
   const body = req.body;
-  const response = await updateProductController(user, body);
+  const response = await updateProductController(user, id, body);
   res.status(200).json(response.data);
 });
-router.delete("/delete/:id", verifyRoutesJwt, (req, res) => {
+router.delete("/delete/:id", verifyRoutesJwt, async (req, res) => {
   //product delete logics here
   const user = req.user;
+  const id = req.params.id;
   const body = req.body;
-  const response = deleteProductController(user, body);
+  const response = await deleteProductController(user, id, body);
+  console.log(response);
   res.status(response.statusCode).json(response.data);
 });
 // modules exports

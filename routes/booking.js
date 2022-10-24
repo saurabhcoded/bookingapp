@@ -47,7 +47,6 @@ router.put("/booking/:id", verifyRoutesJwt, async (req, res) => {
   const user = req.user;
   const updateBooking = await BOOKING.findOne({ _id: BookingId, email: user });
   updateBooking.googleCalendar = req.body.googleCalendar;
-
   updateBooking.save();
   res
     .status(404)

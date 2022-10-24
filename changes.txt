@@ -1,16 +1,12 @@
-{
-  "status": "ok",
-  "user": {
-    "_id": "6353bb6fea8ccbf899683090",
-    "name": "ritikesh singh",
-    "email": "lalji5029@gmail.com",
-    "contact": 12345678,
-    "post": "web developer",
-    "password": "$2b$10$73nmbjl2VZcoVqjQVbBU9OlkB2msr4fVrycctGvS/lZVi/EVgjnY2",
-    "verified": true,
-    "created_on": "2022-10-22T09:44:15.784Z",
-    "updated_on": "2022-10-22T09:44:15.784Z",
-    "__v": 0
-  },
-  "jwt": ""
-}
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoic2F1cmFiaGNvZGVkQGdtYWlsLmNvbSIsImlhdCI6MTY2NjU4NDc3MywiZXhwIjoxNjY3MDE2NzczfQ.J-PHgyyiiSFq2n39xhXjPLxf_UmBNuBpPlOvF4vCkHw
+
+  title: String,
+  subtitle: String,
+  description: String,
+  email: String,
+  image: String,
+  price: Number,
+  duration: Number,
+  classes: Number,
+  type: String,
+  tag: Array,

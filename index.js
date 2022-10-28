@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const auth = require("./routes/auth.js");
 const booking = require("./routes/booking");
 const product = require("./routes/product");
+const user = require("./routes/user");
 const DBUSER = require("./models/model");
 
 // Middlewares
@@ -13,7 +14,8 @@ app.use(express.json());
 
 // Routes
 app.use("/auth", auth);
-app.use("/", booking);
+app.use("/booking", booking);
+app.use("/user", user);
 app.use("/product", product);
 
 //Database and Server

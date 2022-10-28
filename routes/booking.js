@@ -3,16 +3,6 @@ const { verifyRoutesJwt } = require("../controllers/jwtVerifiedRoute");
 const router = express.Router();
 const { BOOKING } = require("../models/model");
 
-// GET USER DETAILS
-router.get("/", verifyRoutesJwt, async (req, res) => {
-  res.json({
-    user: req.user,
-    posts: {
-      title: "my FIrst Post",
-    },
-  });
-});
-
 //GET ALL BOOKINGS
 router.get("/booking", verifyRoutesJwt, async (req, res) => {
   //Booking Logics here
